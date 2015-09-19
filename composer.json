@@ -1,0 +1,24 @@
+{
+    "name": "vierbergenlars/authserverclient",
+    "description": "Simple authserver login for plain PHP applications",
+    "require": {
+        "php": ">=5.4",
+        "guzzle/guzzle": "^3.9",
+        "fkooman/oauth-client": "^0.5.2",
+        "fkooman/guzzle-bearer-auth-plugin": "^0.2.2",
+        "symfony/http-foundation": "^2.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lars Vierbergen",
+            "email": "vierbergenlars@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "vierbergenlars\\AuthserverClient\\": "src/"
+        }
+    }
+
+}
