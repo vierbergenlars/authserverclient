@@ -134,8 +134,12 @@ class OAuthClient
                 return $ex;
             }
         }
-        if($request->query->has('code'))
-            return new RedirectResponse($request->duplicate([])->getRequestUri());
+        if($request->query->has('code')) {
+            $request->query->remove('code');
+            $request->query->remove('state');
+            $request->server->set('QUERY_STRING', http_build_query($request->query->all()));
+            return new RedirectResponse($request->getUri());
+        }
 
         if(!$this->getAccessToken())
             return new RedirectResponse($this->api->getAuthorizeUri($this->context));
